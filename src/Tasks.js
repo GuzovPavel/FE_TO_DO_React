@@ -62,7 +62,10 @@ const onClickDone = async (index, valueInput, _id) => {
     <header className="App-header">
     <h1>To-Doshechka</h1>
       <div className="quest">
-        <input type="text" id="add-Task" value={text} onChange={(e) => setText(e.target.value)}/>
+        <input type="text" 
+        id="add-Task" 
+        value={text} 
+        onChange={(e) => setText(e.target.value)}/>
         <button className="butt" onClick={() => onClickButton()}>Add</button>
       </div>
       <div className="TaskContainer">
