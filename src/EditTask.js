@@ -3,10 +3,7 @@ import done from './images/done.png';
 import close from './images/close.png';
 import { useState } from 'react';
 
-
-
-function EditTask({task, index, onClickClose, onClickDone}) {
-
+const EditTask = ({task, index, onClickClose, onClickDone}) => {
   const [valueInput, setInput] = useState(task.text);
 
   return(

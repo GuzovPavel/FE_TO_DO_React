@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NewTask from './NewTask';
 import EditTask from './EditTask'
 import axios from 'axios';
+import './App.scss';
 
 function Tasks() {
 
@@ -9,14 +10,14 @@ function Tasks() {
   const [text, setText] = useState('');
   const [edit, setEdit] = useState(-1);
 
-  useEffect( () => {
-    const getElement = async () => {
-    await axios.get('http://localhost:8000/allTasks').then(res => {
-      setTask(res.data.data)
-    })
-  }
-  getElement();
+useEffect( () => {
+const getElement = async () => {
+  await axios.get('http://localhost:8000/allTasks').then(res => {
+    setTask(res.data.data)
   })
+}
+  getElement();
+})
   
 const onClickButton = async() => {
   await axios.post('http://localhost:8000/createNewTask', {
@@ -32,7 +33,6 @@ const onClickButton = async() => {
 
 const changeCheck = async (index, flag, _id) => {
   await axios.patch('http://localhost:8000/changeTask', {
-    text: setText,
     isCheck: !flag,
     _id: tasks[index]._id
   }).then(res => {
@@ -57,10 +57,10 @@ const onClickDone = async (index, valueInput, _id) => {
   })
 }
 
- return (
-    <div className="App">
-      <header className="App-header">
-      <h1>To-Doshechka</h1>
+  return (
+  <div className="App">
+    <header className="App-header">
+    <h1>To-Doshechka</h1>
       <div className="quest">
         <input type="text" id="add-Task" value={text} onChange={(e) => setText(e.target.value)}/>
         <button className="butt" onClick={() => onClickButton()}>Add</button>
@@ -68,7 +68,7 @@ const onClickDone = async (index, valueInput, _id) => {
       <div className="TaskContainer">
         {tasks.map((task, index) => {
 
-          const val = {
+        const newTaskParams = {
           key: `task-${index}`,
           task: task,
           index: index,
@@ -76,26 +76,20 @@ const onClickDone = async (index, valueInput, _id) => {
           onClickEdit: setEdit,
           onClickDel: onClickDel};
 
-          const val1 = {
-            key: `task-${index}`,
-            task: task,
-            index: index,
-            onClickDone: onClickDone,
-            onClickClose: setEdit};
+        const editTaskParams = {
+          key: `task-${index}`,
+          task: task,
+          index: index,
+          onClickDone: onClickDone,
+          onClickClose: setEdit};
       
-            return index !== edit ?
-         
-            (<NewTask
-            {...val}
-            />)
-            : (<EditTask
-              {...val1}
-            />);
-          })
-        }
+  return index !== edit ?
+   (<NewTask {...newTaskParams}/>) : (<EditTask {...editTaskParams}/>);
+  })
+}
       </div>
-      </header>
-    </div>
+    </header>
+  </div>
   );
 }
 
