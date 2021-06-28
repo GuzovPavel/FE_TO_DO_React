@@ -1,0 +1,121 @@
+body {
+  background-color: rgb(121, 69, 128);
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: 100vh;
+}
+
+img {
+  width: 30px;
+  height: 30px;
+}
+
+.task-text-update {
+  text-decoration: line-through;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+}
+
+.quest {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  height: 4%;
+}
+
+#add-Task {
+  padding: 0;
+  padding-left: 1%;
+  height: 100%;
+  width: 25%;
+  background-color: rgb(186, 168, 189);
+  border-radius: 50px 0 0 50px;
+  border: none;
+  outline: none;
+}
+
+.butt {
+  width: 5%;
+  padding: 0;
+  height: 100%;
+  background-color: rgb(186, 168, 189);
+  border: none;
+  border-left: 1px black solid;
+  outline: none;
+  border-radius: 0 50px 50px 0;
+}
+
+.TaskContainer {
+  display: flex;
+  width: 80%;
+  margin-top: 15px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TaskBox {
+  background-color: rgb(151, 209, 209);
+  display: flex;
+  margin-top: 15px;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  justify-content: space-around;
+  border-radius: 50px;
+}
+
+span {
+  font-size: 18px;
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+span:hover {
+  white-space: pre-wrap;
+  overflow: visible;
+  text-overflow: clip;
+  overflow-wrap: break-word;
+}
+
+
+.Check {
+  width: 25px;
+  height: 25px;
+}
+
+.edit-task {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(151, 209, 209);
+}
+
+.newVal {
+  font-size: 18px;
+  width: 80%;
+  background-color: rgb(151, 209, 209);
+  border-radius: 50px;
+  outline: none;
+  border: rgb(14, 13, 12) 1px solid;
+}
